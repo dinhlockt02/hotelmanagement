@@ -22,6 +22,9 @@ import MainCard from "../../../ui-component/cards/MainCard";
 import Transitions from "../../../ui-component/extended/Transitions";
 
 const ProfileSection = () => {
+  //redux
+  const {userLogin} = useSelector(state => state.UserReducer);
+  console.log(userLogin);
   const theme = useTheme();
   const customization = useSelector((state) => state.customization);
   const navigate = useNavigate();
@@ -86,9 +89,8 @@ const ProfileSection = () => {
         }}
         icon={
           <Avatar
-            src={User1}
+            src={userLogin?.avatar}
             sx={{
-              ...theme.typography.mediumAvatar,
               margin: "8px 0 8px 8px !important",
               cursor: "pointer",
             }}
@@ -150,10 +152,10 @@ const ProfileSection = () => {
                           variant="h4"
                           sx={{ fontWeight: 400 }}
                         >
-                          Johne Doe
+                          {userLogin?.fullName}
                         </Typography>
                       </Stack>
-                      <Typography variant="subtitle2">Project Admin</Typography>
+                      <Typography variant="subtitle2">{userLogin?.role}</Typography>
                     </Stack>
                   </Box>
                   <Box sx={{ px: 2, pb: 1 }}>
