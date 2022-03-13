@@ -47,7 +47,7 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: ubuntu
+      - image: circleci/openjdk:8-jdk
     steps:
       - checkout
       - setup_remote_docker:
