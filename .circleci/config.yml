@@ -53,8 +53,8 @@ jobs:
       - run: chmod 400 aws_key.pem
       - run: cat aws_key.pem
       - run: ssh -o "StrictHostKeyChecking=no" -i "aws_key.pem" $SSH_HOST "./deploy.sh"
-      - run: echo $PWD
 workflows:
   build-workflow:
     jobs:
+      - build
       - deploy_vps
