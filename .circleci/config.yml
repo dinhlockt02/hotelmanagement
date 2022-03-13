@@ -45,7 +45,7 @@ jobs:
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
   deploy_vps:
-    working_directory: /app
+    working_directory: ~/project
     docker:
       - image: cimg/base:2022.03
     steps:
