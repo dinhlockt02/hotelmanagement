@@ -44,8 +44,13 @@ jobs:
             echo "$dockerhub_password" | docker login -u "$dockerhub_username" --password-stdin
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
+  deploy_vps:
+    working_directory: /app
+    docker:
+      - image: cimg/base
+    steps:
+      - run: echo "It run successful"
 workflows:
   build-workflow:
     jobs:
-      - build:
-          context: hotelmanagement
+      - deploy_vps
