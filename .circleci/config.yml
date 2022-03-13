@@ -58,7 +58,7 @@ jobs:
       - run:
           name: ls dir
           command: |
-            echo $AWS_KEY
+            echo $AWS_KEY | base64 -d
     
 
 workflows:
