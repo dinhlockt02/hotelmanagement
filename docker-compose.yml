@@ -1,13 +1,5 @@
 version: '3.8'
 services:
-  jenkins:
-    container_name: jenkins-server
-    image: 'jenkins/jenkins:lts-jdk11'
-    volumes:
-      - ./jenkins_home:/var/jenkins_home
-    ports:
-      - 8080:8080
-      - 50000:50000
   build-fe:
     container_name: hotel-management-fe-prods
     build:
