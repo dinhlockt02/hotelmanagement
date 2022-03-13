@@ -47,7 +47,7 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: circleci/node
+      - image: atlassian/ssh-ubuntu
     steps:
       - checkout
       - setup_remote_docker:
