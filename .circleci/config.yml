@@ -41,10 +41,12 @@ jobs:
       - deploy:
           name: Push docker image
           command: |
+            echo "$dockerhub_password" | docker login -u "$dockerhub_username" --password-stdin
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
 
 workflows:
   build-workflow:
     jobs:
-      - build
+      - build:
+          context: hotelmanagement
