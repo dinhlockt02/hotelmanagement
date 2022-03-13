@@ -44,15 +44,8 @@ jobs:
             echo "$dockerhub_password" | docker login -u "$dockerhub_username" --password-stdin
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
-  deploy_vps:
-    working_directory: /app
-    docker:
-      - image: cimg/base:2020.01
-    steps:
-      - checkout
-      - run: sudo apt-get update && sudo apt-get install -y cowsay
-      - run: cowsay Continuous Integration Rocks!
 workflows:
   build-workflow:
     jobs:
-      - deploy_vps
+      - build:
+          context: hotelmanagement
