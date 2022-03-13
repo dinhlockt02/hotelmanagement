@@ -56,7 +56,8 @@ jobs:
 workflows:
   build-workflow:
     jobs:
-      - build
+      - build:
+          context: hotelmanagement
       - deploy_vps:
           requires:
             - build
