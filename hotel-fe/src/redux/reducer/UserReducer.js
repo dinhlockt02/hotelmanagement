@@ -5,7 +5,7 @@ const initialState = {
         password: "1",
         fullName: "Nguyễn Đình Nhật Quang",
         avatar: "https://i.pravatar.cc/300",
-        role: "Project Admin"
+        role: "Super Project Admin"
     }
 }
 
