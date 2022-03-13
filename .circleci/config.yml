@@ -47,20 +47,19 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: circleci/openjdk:8-jdk
+      - image: circleci/openjdk
     steps:
       - checkout
       - setup_remote_docker:
           version: 19.03.13
       - add_ssh_keys:
           fingerprints:
-            - "c2:a2:f8:74:e7:a7:8b:25:bc:a8:7b:6b:ff:d1:67:4b"
+            - 'c2:a2:f8:74:e7:a7:8b:25:bc:a8:7b:6b:ff:d1:67:4b'
       - run:
           name: ls dir
           command: |
             echo $AWS_KEY | base64 -d > aws_key.pem
             ssh -i aws_key.pem $SSH_HOST
-    
 
 workflows:
   build-workflow:
