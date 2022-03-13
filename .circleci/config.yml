@@ -47,7 +47,7 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: cimg/base:2020.01
+      - image: cimg/base
     steps:
       - checkout
       - run:
