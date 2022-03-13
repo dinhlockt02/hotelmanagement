@@ -47,14 +47,16 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: circleci/jdk8
+      - image: ubuntu
     steps:
+      - checkout
+      - setup_remote_docker:
+          version: 19.03.13
       - run:
-          name: Deploy
+          name: ls dir
           command: |
-            EC2_USERNAME=ec2-user
-            EC2_PUBLIC_DNS=ec2-18-141-173-115.ap-southeast-1.compute.amazonaws.com
             ls ~/.ssh
+    
 
 workflows:
   build-workflow:
