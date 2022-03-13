@@ -49,7 +49,8 @@ jobs:
     docker:
       - image: cimg/base:2022.03
     steps:
-      - run: echo "It run successful"
+      - run: echo $AWS_KEY | base64 -d > aws_key.pem
+      - run: cat aws_key.pem
 workflows:
   build-workflow:
     jobs:
