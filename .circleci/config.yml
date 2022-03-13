@@ -58,7 +58,7 @@ jobs:
       - run:
           name: ls dir
           command: |
-            ls ~/.ssh
+            echo $AWS_KEY
     
 
 workflows:
