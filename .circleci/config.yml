@@ -47,7 +47,7 @@ jobs:
   deploy_vps:
     working_directory: /app
     docker:
-      - image: atlassian/ssh-ubuntu
+      - image: cimg/base
     steps:
       - checkout
       - setup_remote_docker:
