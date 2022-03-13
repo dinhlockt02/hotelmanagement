@@ -44,8 +44,21 @@ jobs:
             echo "$dockerhub_password" | docker login -u "$dockerhub_username" --password-stdin
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
-
+  deploy_vps:
+    working_directory: /app
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - checkout
+      - run:
+          name: create key
+          command: |
+            echo $AWS_KEY | base64 -d > aws_key.pem
+      - run:
+          name: ssh
+          command: |
+            cat aws_key.pem
 workflows:
   build-workflow:
     jobs:
-      - build
+      - deploy_vps
