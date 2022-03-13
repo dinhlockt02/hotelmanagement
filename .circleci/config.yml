@@ -52,6 +52,9 @@ jobs:
       - checkout
       - setup_remote_docker:
           version: 19.03.13
+      - add_ssh_keys:
+          fingerprints:
+            - "c2:a2:f8:74:e7:a7:8b:25:bc:a8:7b:6b:ff:d1:67:4b"
       - run:
           name: ls dir
           command: |
