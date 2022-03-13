@@ -44,9 +44,19 @@ jobs:
             echo "$dockerhub_password" | docker login -u "$dockerhub_username" --password-stdin
             docker tag app dinhlockt02/hotelmanagement_frontend-prods
             docker push dinhlockt02/hotelmanagement_frontend-prods
+  deploy_vps:
+    working_directory: /app
+    docker:
+      - image: circleci/jdk8
+    steps:
+      - run:
+          name: Deploy
+          command: |
+            EC2_USERNAME=ec2-user
+            EC2_PUBLIC_DNS=ec2-18-141-173-115.ap-southeast-1.compute.amazonaws.com
+            ls ~/.ssh
 
 workflows:
   build-workflow:
     jobs:
-      - build:
-          context: hotelmanagement
+      - deploy_vps
