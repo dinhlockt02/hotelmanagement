@@ -3,9 +3,9 @@ const initialState = {
         id: "1",
         username: "admin",
         password: "1",
-        fullName: "Nguyễn Đình Nhật Quang",
+        fullName: "Nguyễn Admin",
         avatar: "https://i.pravatar.cc/300",
-        role: "Super Project Admin"
+        role: "Project Admin"
     }
 }
 
